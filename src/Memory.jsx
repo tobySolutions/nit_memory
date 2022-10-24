@@ -1,8 +1,9 @@
 
 import React, {useState, useEffect} from 'react';
+import NitHubLogo from "./assets/nithub-logo.png"
+
 
 const TILE_COLORS = ['red', 'green', 'blue', 'yellow'];
-const nitHubLogo = "https://media-exp1.licdn.com/dms/image/D4D0BAQECaofB-HkiwQ/company-logo_200_200/0/1665340228010?e=1674691200&v=beta&t=U8UDL3jN9mTpomBqOFystUHrHF1keU4Y2MpE7NUDReE";
 
 export default function Memory() {
   const [board, setBoard] = useState(() => shuffle([...TILE_COLORS, ...TILE_COLORS]))
@@ -34,22 +35,22 @@ export default function Memory() {
 
   const didPlayerWin = matchedTiles.length === board.length;
   return (
-      <>
-        <header className="head--nav"><img src={nitHubLogo} className="logo" alt="nithub-logo"/></header>
+    <article>
+      <header className="head--nav"><img src={NitHubLogo} className="logo" alt="nithub-logo"/></header>
        <main className="main">
-      <h1>{didPlayerWin ? 'You Win!' : 'Find All Pairs Of Colored Boxes'}</h1>
-      <div className="board">
-        {board.map((tileColor, i) => {
-            const isTurnOver = selectedTiles.includes(i) || matchedTiles.includes(i)
-      
-            const className = isTurnOver ? `tile ${tileColor}` : 'tile';
-            return <div key={i} className={className} onClick={() => selectTile(i)}/>
-          })
-        }
-      </div>
-      {didPlayerWin && <button onClick={restartGame}>Restart</button>}
+        <h1>{didPlayerWin ? 'You Win!' : 'Find All Pairs Of Colored Boxes'}</h1>
+        <div className="board">
+          {board.map((tileColor, i) => {
+              const isTurnOver = selectedTiles.includes(i) || matchedTiles.includes(i)
+        
+              const className = isTurnOver ? `tile ${tileColor}` : 'tile';
+              return <div key={i} className={className} onClick={() => selectTile(i)}/>
+            })
+          }
+        </div>
+        {didPlayerWin && <button className='my-[2em] mx-[2em]' onClick={restartGame}>Restart</button>}
     </main>  
-    </>
+    </article>
   );
 }
 

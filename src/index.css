@@ -5,6 +5,8 @@ body {
 
 .main {
   text-align: center;
+  min-height: 100vh;
+  margin-top: 3rem;
 }
 
 h1 {
@@ -12,7 +14,8 @@ h1 {
 }
 
 .head--nav {
-  padding: .5em 2em;
+  margin-top: 1em;
+  padding: .5em 5em;
 }
 
 img {
@@ -44,10 +47,11 @@ button, input[type="button"] {
   width: 80%;
   max-width: 700px;
   margin: 0 auto;
-  min-height: 45vh;
+  min-height: 45.7vh;
   background-color: lightgray;
   justify-content: center;
   gap: .63rem;
+  margin-bottom: 1em;
   padding: 2rem 1rem;
   border-radius: 12px;
 }
